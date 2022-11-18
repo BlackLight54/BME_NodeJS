@@ -1,0 +1,60 @@
+<%- include('header.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h2 class=""><%= car.plate%></h2>
+      <span class=""><b>Make</b>&emsp;<%= car.make%></span><br />
+      <span class=""><b>Model</b>&emsp;<%= car.model%></span><br />
+      <span class=""><b>VIN</b>&emsp;<%= car.vin%></span><br />
+      <span class=""><b>1st registration</b>&emsp;<%= car.year%></span><br />
+
+
+
+      <h3 class="">Parts</h3>
+      <table class="table table-striped">
+        <tr>
+          <th>
+            Part Name
+          </th>
+          <th>
+            Part no.
+          </th>
+          <th>
+            Price
+          </th>
+          <th>
+            <a href="/editParts.hmtl" class="btn btn-sm btn-success" title="Add part">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+            &nbsp;
+          </th>
+        </tr>
+
+        <% parts.forEach(part => { %>
+        <tr>
+          <td>
+            <%= part.name%>
+          </td>
+          <td>
+            <%= part.number%>
+          </td>
+          <td>
+            <%= part.price%>
+          </td>
+          <td style="width:15px;white-space: nowrap">
+
+            <a href="/parts/edit/<%= part.id%>" class="btn btn-sm btn-primary" title="Edit Part">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+
+            <a href="/parts/del/<%= part.id%>" class="btn btn-sm btn-danger" title="Delete part">
+              <i class="fas fa-square-xmark"></i>
+            </a>
+          </td>
+        </tr>
+        <% }); %>
+      </table>
+
+    </div>
+    <%- include('footer.ejs') %>

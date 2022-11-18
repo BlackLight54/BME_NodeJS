@@ -1,0 +1,26 @@
+<%- include('header.ejs') %>
+<h1 class="d-flex justify-content-center"><% if (typeof car === 'undefined') { %>
+    Add
+    <% }else{ %>
+    Edit
+    <% } %> Part</h1>
+<div class="d-flex justify-content-center">
+
+  <form>
+    <div class="form-group">
+      <label for="PartNameInput">Part Name</label>
+      <input name="PartNameInput" type="text" class="form-control" id="PartNameInput" placeholder="eg. Suspension Arm" value="<%= (typeof part === 'undefined') ? '' : part.name %>">
+    </div>
+    <div class="form-group">
+      <label for="PartNoInput">Part no.</label>
+      <input name="PartNoInput" type="text" class="form-control" id="PartNoInput" placeholder="eg. 12345678901234567" value="<%= (typeof part === 'undefined') ? '' : part.number %>">
+    </div>
+
+    <div class="form-group">
+      <label for="PriceInput">Price</label>
+      <input name="PriceInput" type="text" class="form-control" id="PriceInput" placeholder="eg. 2000000" value="<%= (typeof part === 'undefined') ? '' : part.price %>">
+    </div>
+    <button type="submit" class="btn btn-primary col-12 mt-3 ">Submit</button>
+  </form>
+</div>
+<%- include('footer.ejs') %>

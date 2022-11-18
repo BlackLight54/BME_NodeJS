@@ -8,7 +8,7 @@
 
  module.exports = function (objectrepository, viewName) {
      return function (req, res) {
-         //res.render(viewName, res.tpl);
+         res.render(viewName);
          console.log('render: ' + viewName);
          res.end('Template: ' + viewName);
      };

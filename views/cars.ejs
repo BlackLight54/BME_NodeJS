@@ -1,0 +1,67 @@
+<%- include('header.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+
+      <h2 class="">Cars</h2>
+      <table class="table table-striped">
+        <tr>
+          <th>
+            License Plate
+          </th>
+          <th>
+            Manufacturer
+          </th>
+          <th>
+            Model
+          </th>
+          <th>
+            VIN
+          </th>
+          <th>
+            1st registration
+          <th>
+            <a href="/cars/new" class="btn btn-sm btn-success" title="Add Car">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+            &nbsp;
+          </th>
+        </tr>
+        <% cars.forEach(car => { %>
+        <tr>
+          <th>
+            <a href="/cars/<%= car.id %>"> <%= car.plate %>
+          </th>
+          <th>
+            <%= car.make %>
+          </th>
+          <th>
+            <%= car.model %>
+          </th>
+          <th>
+            <%= car.vin %>
+          </th>
+          <th>
+            <%= car.year %>
+          <td style="width:15px;white-space: nowrap">
+
+            <a href="/cars/edit/<%= car.id%>" class="btn btn-sm btn-primary" title="Edit Car">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+
+            <a href="/cars/delete/<%= car.id %>" class="btn btn-sm btn-danger" title="Delete Car">
+              <i class="fas fa-square-xmark"></i>
+            </a>
+          </td>
+
+        </tr>
+        <% }); %>
+
+      </table>
+      <br />
+
+    </div>
+  </div>
+</div>
+
+<%- include('footer.ejs') %>

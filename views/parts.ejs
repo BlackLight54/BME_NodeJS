@@ -1,0 +1,55 @@
+<%- include('header.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class=col-12>
+      <h2 class="">Parts</h2>
+      <table class="table table-striped table-bordered">
+        <tr>
+          <th>
+            Part Name
+          </th>
+          <th>
+            Part no.
+          </th>
+          <th>
+            Price
+          </th>
+          <th>
+            <a href="/parts/new" class="btn btn-sm btn-success" title="Add Part">
+              <i class="fa-solid fa-plus"></i>
+            </a>
+            &nbsp;
+          </th>
+        </tr>
+        <% parts.forEach(part => { %>
+        <tr>
+          <td>
+            <%= part.name%>
+          </td>
+          <td>
+            <%= part.number%>
+          </td>
+          <td>
+            <%= part.price%>
+          </td>
+          <td style="width:15px;white-space: nowrap">
+
+            <a href="/cars/<%= part._usedIn%>" class="btn btn-sm btn-primary" title="Corresponding Car">
+              <i class="fa-solid fa-car"></i>
+            </a>
+            <a href="/parts/edit/<%= part.id%>" class="btn btn-sm btn-primary" title="Edit Part">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+
+            <a href="/parts/del/<%= part.id%>" class="btn btn-sm btn-danger" title="Delete Part">
+              <i class="fas fa-square-xmark"></i>
+            </a>
+          </td>
+        </tr>
+        <% }); %>
+      </table>
+      <br />
+    </div>
+  </div>
+</div>
+<%- include('footer.ejs') %>
