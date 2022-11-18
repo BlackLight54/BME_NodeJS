@@ -96,12 +96,10 @@ module.exports = function (app) {
         delPartMW(objRepo),
         renderMW(objRepo, 'addEditParts'));
 
-    app.use("/login",
+    app.use("/",
         checkPassMW(objRepo),
         renderMW(objRepo, 'login'));
 
 
-    app.use(function (req, res) {
-        res.redirect("/login")
-    });
+   
 }

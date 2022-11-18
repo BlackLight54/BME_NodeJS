@@ -3,9 +3,15 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
+    const CarModel = requireOption(objectrepository, 'CarModel');
     return function (req, res, next) {
-        res.locals.cars = objectrepository.cars;
+       CarModel.find({}, (err, cars) => {
+        if (err) {
+            return next(err);
+        }
 
-        next();
+        res.locals.cars = cars;
+        return next();
+    })
     };
 };

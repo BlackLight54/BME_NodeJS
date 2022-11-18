@@ -6,7 +6,13 @@ module.exports = function (objectrepository) {
 
     const CarModel = requireOption(objectrepository, 'CarModel');
     return function (req, res, next) {
-        res.locals.car = objectrepository.cars[0];
-        next();
+       CarModel.findOne({ _id: req.params.carId }, (err, car) => {
+        if (err || !car) {
+            return next(err);
+        }
+
+        res.locals.car = car;
+        return next();
+    })
     };
 };

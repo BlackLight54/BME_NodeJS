@@ -6,27 +6,27 @@
   <% } %> Car</h1>
 <div class="d-flex justify-content-center">
 
-  <form>
+  <form method="post">
     <div class="form-group">
       <label for="LicensePlateInput">License Plate</label>
-      <input name="LicensePlateInput" type="text" class="form-control" id="LicensePlateInput" placeholder="eg. ABC-123" value="<%= (typeof car === 'undefined') ? '' : car.plate %>">
+      <input name="licenseplate" type="text" class="form-control" id="LicensePlateInput" placeholder="eg. ABC-123" value="<%= (typeof car === 'undefined') ? '' : car.plate %>">
     </div>
     <div class="form-group">
       <label for="MakeInput">Make</label>
-      <input name="MakeInput" type="text" class="form-control" id="MakeInput" placeholder="eg. Audi" value="<%= (typeof car === 'undefined') ? '' : car.make %>">
+      <input name="make" type="text" class="form-control" id="MakeInput" placeholder="eg. Audi" value="<%= (typeof car === 'undefined') ? '' : car.make %>">
     </div>
 
     <div class="form-group">
       <label for="ModelInput">Model</label>
-      <input name="ModelInput" type="text" class="form-control" id="ModelInput" placeholder="eg. A5" value="<%= (typeof car === 'undefined') ? '' : car.model %>">
+      <input name="model" type="text" class="form-control" id="ModelInput" placeholder="eg. A5" value="<%= (typeof car === 'undefined') ? '' : car.model %>">
     </div>
     <div class="form-group">
       <label for="VINInput">VIN</label>
-      <input name="VINInput" type="text" class="form-control" id="VINInput" placeholder="eg. 123512352135" value="<%= (typeof car === 'undefined') ? '' : car.vin %>">
+      <input name="vin" type="text" class="form-control" id="VINInput" placeholder="eg. 123512352135" value="<%= (typeof car === 'undefined') ? '' : car.vin %>">
     </div>
     <div class="form-group">
       <label for="YearInput">Year</label>
-      <input name="YearInput" type="text" class="form-control" id="YearInput" placeholder="eg. 1999" value="<%= (typeof car === 'undefined') ? '' : car.year %>">
+      <input name="year" type="text" class="form-control" id="YearInput" placeholder="eg. 1999" value="<%= (typeof car === 'undefined') ? '' : car.year %>">
     </div>
     <button type="submit" class="btn btn-primary col-12 mt-3 ">Submit</button>
   </form>

@@ -8,7 +8,6 @@ const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
     return function(req, res, next) {
-        console.log(req.body);
         if (typeof req.body.password === 'undefined') {
             return next();
         }
