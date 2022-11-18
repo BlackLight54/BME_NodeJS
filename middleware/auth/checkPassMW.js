@@ -7,8 +7,18 @@
 const requireOption = require('../requireOption');
 
 module.exports = function (objectrepository) {
-    return function (req, res, next) {
-        console.log(req );
-        next();
+    return function(req, res, next) {
+        console.log(req.body);
+        if (typeof req.body.password === 'undefined') {
+            return next();
+        }
+
+        if (req.body.password === 'password') {
+            req.session.loggedIn = true;
+            return req.session.save(err => res.redirect('/cars'));
+        }
+
+        res.locals.error = 'Hibás jelszó!';
+        return next();
     };
 };
